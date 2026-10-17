@@ -11,7 +11,7 @@ const chat = require('../controllers/chatController');
 const companies = require('../config/companies');
 
 // Auth
-router.post('/auth/register', auth.register); fbbmsfgmsdfm
+router.post('/auth/register', auth.register);
 router.post('/auth/login', auth.login);
 router.get('/auth/me', protect, auth.me);
 router.put('/auth/profile', protect, auth.updateProfile);
