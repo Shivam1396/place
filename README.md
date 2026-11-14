@@ -1,26 +1,19 @@
-# PlacePrep AI - Student Performance Monitoring & Adaptive Test Platform (MERN)
+# React + Vite
 
-## Run
-```bash
-# 1. Backend
-cd server && cp .env.example .env     # set MONGO_URI, JWT_SECRET (and ANTHROPIC_API_KEY for real LLM)
-npm install && npm run seed && npm run dev      # http://localhost:5000
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-# 2. Frontend
-cd client && cp .env.example .env && npm install && npm run dev   # http://localhost:5173
-```
-Demo logins (after seed): `student@demo.com` / `faculty@demo.com`, password `password123`.
+Currently, two official plugins are available:
 
-## AI/ML components
-| Feature | Where | Method |
-|---|---|---|
-| Adaptive testing | server/services/adaptive.js | 1-PL IRT (Rasch): ability theta updated per answer, next question = max-information (difficulty closest to theta) |
-| Readiness score | services/scoring.js | Weighted: topic abilities 70%, interview 15%, resume 10%, consistency 5% |
-| Performance prediction | services/scoring.js | Logistic model (readiness, CGPA, interview). Replace with trained scikit-learn model via a Python microservice |
-| Skill gap & company prep | scoring.js + config/companies.js | Gap = company target - current per topic |
-| Recommendation / roadmap | scoring.js | Weekly hours allocated proportional to gap |
-| Interview chatbot, AI mentor | services/llm.js | LLM (Anthropic API); graceful fallback if no key |
-| Resume ATS | services/ats.js | Keyword coverage, section detection, quantified-impact heuristics |
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Next steps
-Grow the question bank (admin CRUD page), add Redis caching, train a real placement model on historical data, add CSV export for the placement cell, add tests (Jest + Supertest) and Docker Compose.
+## React Compiler
+
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+
+Note: This will impact Vite dev & build performances.
+You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
