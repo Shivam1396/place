@@ -3,7 +3,7 @@ module.exports = mongoose.model('ResumeReport', new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', index: true },
   targetRole: String,
   score: Number,
-  matchedKeywords: [String],
+  matchedKeywords: [String],ssd dnansd
   missingKeywords: [String],
   sections: mongoose.Schema.Types.Mixed,
   suggestions: [String],
